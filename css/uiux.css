@@ -95,7 +95,7 @@ body{
 
 .role-description,
 .overview-description {
-    font-size: 18px; /* 설명 크기 */
+    font-size: 20px; /* 설명 크기 */
     color: #666; /* 설명 텍스트 색상 */
     text-align: left;
     padding-bottom: 3%;
