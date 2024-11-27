@@ -342,25 +342,21 @@ html, body {
 
 .eye-ball {
     position: absolute;
-    width: 120px; /* 150% 증가 */
-    height: 120px; /* 150% 증가 */
+    width: 120px;
+    height: 120px;
     background-color: #363636;
     border-radius: 50%;
-    top: 15px; /* 위치 비율 유지하며 조정 */
+    top: 15px;
     left: 50%;
     transform: translateX(-50%);
+    /* 행성 표면 효과를 위한 그라데이션 추가 */
+    background: radial-gradient(circle at 30% 30%, 
+        #4a4a4a 0%, 
+        #363636 50%, 
+        #2d2d2d 100%
+    );
+    box-shadow: inset -10px -10px 20px rgba(0,0,0,0.5);
 }
-
-/* .iris2 {
-    position: absolute;
-    width: 45px; 
-    height: 45px; 
-    background-color: #000;
-    border-radius: 50%;
-    top: 25%;
-    left: 25%;
-} */
-
 
 
 /* 눈알 감싸는 네모 */
@@ -382,20 +378,6 @@ html, body {
     margin: 0 auto; /* 자동 마진으로 중앙 정렬 */
 }
 
-.floating-square {
-    position: absolute;
-    width: 3vw;
-    height: 2vw;
-    min-width: 40px;
-    min-height: 30px;
-    background-color: rgb(255, 255, 255);
-    animation: float 5s ease-in-out infinite;
-    cursor: pointer;
-    overflow: hidden;
-    transition: all 0.5s ease;
-    border-radius: 10px;
-    z-index: 2; /* 높은 z-index 값 설정 */
-}
 
 .text-overlay {
     position: absolute;
@@ -408,64 +390,67 @@ html, body {
     transition: opacity 0.3s ease; /* 투명도 전환 효과 */
 }
 
-/* hover 시 커지는 효과 */
-.floating-square:hover {
-    width: 300px; /* hover 시 커질 너비 */
-    height: 200px; /* hover 시 커질 높이 */
-    object-fit: cover;
-    background-color: rgba(255, 255, 255, 0);
-    transform: translate(0%, 0%);
-}
 
-.floating-square:hover .text-overlay {
-    opacity: 0; /* hover 시 텍스트 숨기기 */
-}
 
-/* 이미지 스타일 */
-.floating-square img {
-    width: 100%; /* 네모의 크기에 맞게 이미지 크기 조정 */
-    height: 100%; /* 네모의 크기에 맞게 이미지 크기 조정 */
+
+/* 선택적: 밑줄 효과 추가 */
+
+.floating-img {
+    position: absolute;
+    width: clamp(80px, 10vw, 130px);
+    height: clamp(80px, 10vw, 130px);
     object-fit: cover;
-    opacity: 0; /* 기본적으로 이미지는 투명 */
-    transition: opacity 0.3s ease; /* 투명도 전환 효과 */
     z-index: 2;
+    cursor: pointer;
 }
 
-/* hover 시 이미지 보이기 */
-.floating-square:hover img {
-    opacity: 1; /* hover 시 이미지 보이기 */
-    z-index: 1;
+.hover-text {
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
-.floating-square {
+.floating-img:hover + .hover-text {
+    opacity: 1;
+}
+
+
+.floating-img {
     /* ... existing properties ... */
-    animation: float-random 5s ease-in-out infinite;
-}
-
-/* 추가: 작은 네모 조각의 애니메이션 */
-@keyframes float-random {
-    0% {
-        transform: translate(0, 0);
-    }
-    50% {
-        transform: translate(var(--random-x), var(--random-y));
-    }
-    100% {
-        transform: translate(0, 0);
-    }
+    transition: transform 2s ease-in-out;
+    transform: translate(var(--random-x, 0), var(--random-y, 0));
 }
 
 
-@media (max-width: 768px) {
-    .text-overlay {
-        font-size: 0.8rem; /* 모바일에서 텍스트 크기를 더 줄임 */
+.typing-text {
+    position: absolute;
+    left: 120%;  /* 이미지 우측에 위치 */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 1.2em;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.typing-text.active {
+    opacity: 1;
+}
+
+@media screen and (max-width: 480px) {
+
+    .eyecontianer .img-container:nth-child(2) {
+        top: 50% !important;
+        right: 50% !important;
     }
 
-    .floating-square.active {
-        width: 250px; /* 클릭 시 커질 너비 */
-        height: 150px; /* 클릭 시 커질 높이 */
-        object-fit: cover;
-        background-color: rgba(255, 255, 255, 0); /* 색상 변경 (선택적) */
+    .eyecontianer .img-container:nth-child(4) {
+        top: 35% !important;
+        right: 30% !important;
     }
 }
 
@@ -493,6 +478,9 @@ html, body {
     animation: float 15s linear infinite; /* 떠다니는 애니메이션 추가 */
     overflow: hidden;
 }
+
+
+
 
 
 /* @keyframes float {
@@ -1816,7 +1804,7 @@ html, body {
 
 
 
-/* 미디어 쿼리 */
+/* 미디�� 쿼리 */
 @media (max-width: 768px) {
     .overlay-container {
         height: auto; /* 높이를 자동 조정 */
@@ -2009,5 +1997,6 @@ html, body {
     font-weight: 900; /* visible 상태에서는 더 굵게 변경 */
 }
 
-/* 선택적: 밑줄 효과 추가 */
+
+
 

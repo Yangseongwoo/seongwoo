@@ -71,28 +71,35 @@ document.addEventListener('DOMContentLoaded', function() {
     
         <div class="eyecontianer">
             <div class="eyewrap">
-                <div class="floating-square" style="top: 40%; left: 10%;">
-                    <img src="image/giant_web mockup.jpg" alt="Example 1">
-                    <div class="text-overlay">WEB</div> <!-- 텍스트 추가 -->
+                <div class="img-container" style="position: absolute; top: 40%; left: 7%;">
+                    <img src="image/Group 56.png" alt="Example 1" class="floating-img" onclick="window.location.href='giant.html'">
+                    <span class="typing-text" data-text="Giant website"></span>
                 </div>
-                <div class="floating-square" style="top: 35%; right: 30%;">
-                    <img src="image/vinyle app.jpg" alt="Example 2">
-                    <div class="text-overlay">APP</div> <!-- 텍스트 추가 -->
+                
+                <div class="img-container" style="position: absolute; top: 35%; right: 35%;">
+                    <img src="image/Group 53.png" alt="Example 2" class="floating-img" onclick="window.location.href='.html'">
+                    <span class="typing-text" data-text="Mobile app"></span>
                 </div>
-                <div class="floating-square" style="top: 25%; left: 30%;">
-                    <img src="image/Macdonals mockup.jpg" alt="Example 3">
-                    <div class="text-overlay">UI</div> <!-- 텍스트 추가 -->
+                
+                <div class="img-container" style="position: absolute; top: 25%; left: 30%;">
+                    <img src="image/Group 55.png" alt="Example 3" class="floating-img" onclick="window.location.href='uiux.html'">
+                    <span class="typing-text" data-text="UI/UX Redesign"></span>
                 </div>
-                <div class="floating-square" style="top: 25%; right: 8%;">
-                    <img src="image/osteria_web.jpg" alt="Example 3">
-                    <div class="text-overlay">WEB</div> <!-- 텍스트 추가 -->
+                
+                <div class="img-container" style="position: absolute; top: 25%; right: 15%;">
+                    <img src="image/Group 52.png" alt="Example 4" class="floating-img" onclick="window.location.href='osteria.html'">
+                    <span class="typing-text" data-text="Osteria website"></span>
                 </div>
+                
                 <div id="stars"></div>
             </div>
             
         </div>
         <script src="js/stars.js"></script>
+        <script src="js/typing.js"></script>
+        <script src="js/floating2.js"></script>
 
+        
         <div class="eye-container3">
             <div class="eye-container2">
                 <div class="eye-wrap2">
@@ -136,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <!--     <section id="horizontal"> -->
-        <h2 class="project_title">Projects</h2>
+        <h2 class="project_title" id="select-project">Projects</h2>
         <div class="project_container" id="horizontal">
             <div class="horizontal__item">
                 <div class="project_card">
@@ -291,7 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <img src="image/Figma.png" alt="Floating Image" class="floating-image" style="right: 20%; top: 40%;"> <!-- 원형 이미지 -->
         <img src="image/Illustrator.png" alt="Floating Image" class="floating-image" style="right: 30%; top: 60%;"> <!-- 원형 이미지 -->
-        <img src="image/Lightroom.png" alt="Floating Image" class="floating-image"> <!-- 원형 이미지 -->
+        <img src="image/Photoshop.png" alt="Floating Image" class="floating-image"> <!-- 원형 이미지 -->
         <img src="image/Premiere Pro.png" alt="Floating Image" class="floating-image" style="right: 10%; top: 60%;"> 
     </div>
 
